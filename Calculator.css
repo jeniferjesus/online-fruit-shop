@@ -1,0 +1,56 @@
+/* --------------- Calculator ------- */
+
+body {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh; */
+    /* margin: 0; */
+    background-image: url('set-fruits-seeds-leaves.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+
+}
+
+h1 {
+    color: black;
+    text-align: center;
+    box-shadow: 4px 4px 4px 4px;
+    background-color: floralwhite;
+}
+
+.calculator {
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: darkviolet;
+}
+
+#result {
+    padding: 15px;
+    font-size: large;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    margin-top: 10px;
+
+
+}
+
+button {
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 4px;
+    background-color: gainsboro;
+    font-weight: bolder;
+    cursor: pointer;
+    color: crimson;
+}

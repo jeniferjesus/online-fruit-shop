@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <script src="Calculator.js"></script>
+    <link rel="stylesheet" href="Calculator.css">
+    <link rel="stylesheet" href="Fruits.css">
+
+</head>
+
+<body>
+    <h1>Calculator</h1>
+    <div class="calculator">
+        <input type="text" id="result">
+        <div class="buttons">
+            <button onclick="ToResult('1')">1</button>
+            <button onclick="ToResult('2')">2</button>
+            <button onclick="ToResult('3')">3</button>
+            <button onclick="ToResult('+')">+</button>
+            <button onclick="ToResult('4')">4</button>
+            <button onclick="ToResult('5')">5</button>
+            <button onclick="ToResult('6')">6</button>
+            <button onclick="ToResult('-')">-</button>
+            <button onclick="ToResult('7')">7</button>
+            <button onclick="ToResult('8')">8</button>
+            <button onclick="ToResult('9')">9</button>
+            <button onclick="ToResult('*')">*</button>
+            <button onclick="ToResult('0')">0</button>
+            <button onclick="calculateResult()">=</button>
+            <button onclick="clearResult()">C</button>
+            <button onclick="ToResult('/')">/</button>
+        </div>
+    </div>
+    <form action="FruitHomePage.html">
+        <td><button class="form-submit" type="submit">Back</button></td>
+    </form>
+
+</body>
+
+</html>

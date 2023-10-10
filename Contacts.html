@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="Fruits.jpg">
+    <link rel="stylesheet" href="Fruits.css">
+    <script src="Fruit.js"></script>
+    <title>Contact Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('free-fruits-wallpapers.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            position: relative;
+        }
+
+        img {
+            float: right;
+        }
+
+        table {
+            margin-top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <!--<h1>Contact Details</h1>-->
+        <fieldset class="con-fieldset">
+            <!-- <table> -->
+            <div class="form-container">
+                <div id="form-h1">
+                    Fill The Order </div><br>
+                <p id="con-p"><img src="fruits-wallpapers.jpg" alt="Apple"
+                        style="width:170px;height:170px;margin-left:15px;">A
+                    fruit develops from the flower of a plant, while the other parts of the plant are categorized as
+                    vegetables.
+                    Fruits contain seeds, while vegetables can consist of roots, stems and leaves.
+                    From a culinary perspective, fruits and vegetables are classified based on taste. Fruits generally
+                    have a sweet or tart flavor and can be used in desserts, snacks or juices.</p>
+
+                <table>
+                    <tr>
+                        <td><label for="" class="form-label">Fruit Name </label></td>
+                        <td> <input type="text" id="fruitName" class="form-input"></td>
+
+                        <td><label for="" class="form-label-left">KG </label></td>
+                        <td> <input type="number" id="quantity" class="form-input-left">
+                        </td>
+                    </tr>
+                    <!-- <tr> 
+                        <td><label for="" class="form-label">Email </label></td>
+                        <td> <input type="email" class="form-input"></td>
+                        <td><label for="" class="form-label-left">Fruits </label></td>
+                        <td>
+                            <select name="" id="" placeholder="select" class="option">
+                                <option value="">select fruits</option>
+                                <option value="">Apple</option>
+                                <option value="">Banana</option>
+                                <option value="">Pineapple</option>
+                                <option value="">WaterMelon</option>
+                                <option value="">Strawberry</option>
+                                <option value="">Orange</option>
+                            </select>
+                        </td>
+
+                    </tr>
+                    <tr>
+
+                        <td><label for="" class="form-label">Phone Number </label></td>
+                        <td> <input type="number" class="form-input"></td>
+                        <td><label for="" class="form-label-left">Enter KG </label></td>
+                        <td> <input type="number" class="form-input-left" ></td>
+
+                    </tr>
+                    <tr>
+
+                        <td><label for="" class="form-label">Delivery Address </label></td>
+                        <td> <textarea name="" id="" cols="25" rows="3"></textarea>
+                        </td>
+                        <td><label for="" class="form-label-left">Rate </label></td>
+                        <td> <input type="number" class="form-input-left" ></td>
+
+                    </tr>-->
+                    <tr>
+                        <div class=" form-group">
+                            <!-- <form action="Message.html"> -->
+                                <td>
+                                    <button class="form-submit" type="submit" onclick="calculateKilograms()">Submit</button>
+                                    <!-- <button class="form-submit" type="submit" onclick="window.print()">Submit</button> -->
+                                </td>
+                            <!-- </form> -->
+                              <!-- Result display -->
+    <p id="result"></p>
+                            <form action="FruitHomePage.html">
+                                <td><button class="form-submit" type="submit">Back</button></td>
+                            </form>
+                        </div>
+                    </tr>
+            </div>
+            </table>
+            <!-- <div class="col-2">
+                
+            <form action="Message.html">
+                <button class="form-submit" type="submit">Submit</button>
+          </form>
+          
+              <form action="FruitHomePage.html" class="col-2">
+                <button class="form-submit" type="submit">Back</button> -->
+            <!-- <button
+                      style="background-color: blue;width: 100px;height: 40px;font-size: larger;font-weight: bold;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;cursor: pointer;margin-left: 70px;">
+                      Back
+                  </button> 
+              </form>-->
+            </div>
+            <!-- </table> -->
+            <!-- <img src="fruits-wallpapers.jpg" alt="Apple" height="300px" width="700px"> -->
+
+        </fieldset>
+
+    </center>
+</body>
+
+</html>

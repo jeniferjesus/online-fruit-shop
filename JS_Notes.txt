@@ -1,0 +1,406 @@
+Create login page for fruit shop:
+Working code must watch:
+https://www.youtube.com/watch?v=9zzX2fbkzWU
+-------------------
+
+https://www.youtube.com/watch?v=t0NXa4z97Zw
+https://www.youtube.com/watch?v=qFVVCaOe6z8
+
+
+-------------------------------------------------------
+Calculation link::
+https://www.youtube.com/watch?v=GiWJQOin5dk
+https://www.youtube.com/watch?v=USmwEDVM2Qc 
+
+I want to display the username of Login Page on to the respected redirect page after successful login.
+
+Example Code:
+Login Page (Page A)::::
+function validate() {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+
+    if (username === "Admin" && password === "123") {
+        // Set the username in localStorage
+        localStorage.setItem('loggedInUsername', username);
+        
+        // Redirect to the redirected page
+        window.location.href = 'redirected_page.html'; // Replace with your redirected page URL
+    } else {
+        alert("Login Failed");
+    }
+}
+
+Redirected Page (Page B - redirected_page.html)::::
+// Read the username from localStorage
+var loggedInUsername = localStorage.getItem('loggedInUsername');
+
+// Check if the username is set in localStorage
+if (loggedInUsername) {
+    // Display the username on the redirected page
+    document.getElementById('usernameDisplay').textContent = 'Welcome, ' + loggedInUsername;
+} else {
+    // Handle the case where the username is not set (optional)
+    document.getElementById('usernameDisplay').textContent = 'Guest'; // Default text
+}
+
+Another code for (Page B)
+// On the redirected page (Page B - redirected_page.html)
+document.addEventListener('DOMContentLoaded', function() {
+    // Read the username from localStorage
+    var loggedInUsername = localStorage.getItem('loggedInUsername');
+    
+    // Check if the element with ID 'usernameDisplay' exists in the DOM
+    var usernameElement = document.getElementById('usernameDisplay');
+
+    if (loggedInUsername && usernameElement) {
+        // Display the username on the page
+        usernameElement.textContent = 'Welcome, ' + loggedInUsername;
+    } else {
+        console.log('Element with ID "usernameDisplay" not found or username not set.');
+    }
+});
+
+
+
+
+
+
+
+
+
+-------------- code with add fruits conditions
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Shop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Fruit Shop</h1>
+        <div class="fruit-images">
+            <div class="fruit">
+                <img src="apple.jpg" alt="Apple">
+                <button class="add-to-cart" data-fruit="Apple">Add to Cart</button>
+            </div>
+            <div class="fruit">
+                <img src="banana.jpg" alt="Banana">
+                <button class="add-to-cart" data-fruit="Banana">Add to Cart</button>
+            </div>
+            <!-- Add more fruits as needed -->
+        </div>
+        <div id="cart">
+            <h2>Cart</h2>
+            <ul id="cart-items">
+                <!-- Cart items will be added here -->
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+    const cartItemsList = document.getElementById('cart-items');
+    const fruitCounts = {}; // Object to store fruit counts
+
+    addToCartButtons.forEach((button) => {
+        button.addEventListener('click', function () {
+            const fruitName = this.getAttribute('data-fruit');
+
+            // Increase the fruit count or initialize to 1 if it doesn't exist
+            if (fruitCounts[fruitName]) {
+                fruitCounts[fruitName]++;
+            } else {
+                fruitCounts[fruitName] = 1;
+            }
+
+            // Update the cart display
+            updateCartDisplay();
+        });
+    });
+
+    function updateCartDisplay() {
+        // Clear the current cart display
+        cartItemsList.innerHTML = '';
+
+        // Loop through the fruitCounts object and add items to the cart
+        for (const fruitName in fruitCounts) {
+            const count = fruitCounts[fruitName];
+            const listItem = document.createElement('li');
+            listItem.textContent = `${fruitName}: ${count}`;
+            cartItemsList.appendChild(listItem);
+        }
+    }
+});
+
+
+
+---------------- Add price count and item count ------------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ... -->
+</head>
+<body>
+    <div class="container">
+        <h1>Fruit Shop</h1>
+        <div class="fruit-images">
+            <div class="fruit" data-fruit="Apple" data-price="1.0">
+                <img src="apple.jpg" alt="Apple">
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="fruit" data-fruit="Banana" data-price="0.5">
+                <img src="banana.jpg" alt="Banana">
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <!-- Add more fruits as needed -->
+        </div>
+        <div id="cart">
+            <h2>Cart</h2>
+            <ul id="cart-items">
+                <!-- Cart items will be added here -->
+            </ul>
+            <p>Total Price: $<span id="total-price">0.00</span></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+CSS::
+/* Your existing CSS styles */
+
+.fruit-images {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.fruit {
+    margin: 10px;
+    text-align: center;
+}
+
+img {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.add-to-cart {
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#cart {
+    margin-top: 20px;
+}
+
+#cart-items {
+    list-style-type: none;
+    padding: 0;
+}
+
+
+JS:::
+document.addEventListener('DOMContentLoaded', function () {
+    const fruitDivs = document.querySelectorAll('.fruit');
+    const cartItemsList = document.getElementById('cart-items');
+    const totalPriceSpan = document.getElementById('total-price');
+    const cart = {}; // Object to store cart items and quantities
+
+    fruitDivs.forEach((fruitDiv) => {
+        const addButton = fruitDiv.querySelector('.add-to-cart');
+        const fruitName = fruitDiv.getAttribute('data-fruit');
+        const fruitPrice = parseFloat(fruitDiv.getAttribute('data-price'));
+
+        addButton.addEventListener('click', function () {
+            // Increase the fruit count or initialize to 1 if it doesn't exist
+            if (cart[fruitName]) {
+                cart[fruitName].count++;
+            } else {
+                cart[fruitName] = { count: 1, price: fruitPrice };
+            }
+
+            // Update the cart display and total price
+            updateCartDisplay();
+        });
+    });
+
+    function updateCartDisplay() {
+        // Clear the current cart display
+        cartItemsList.innerHTML = '';
+
+        // Initialize total price to 0
+        let totalPrice = 0;
+
+        // Loop through the cart object and add items to the cart
+        for (const fruitName in cart) {
+            const { count, price } = cart[fruitName];
+            const listItem = document.createElement('li');
+            listItem.textContent = `${fruitName}: ${count} x $${price.toFixed(2)} = $${(count * price).toFixed(2)}`;
+            cartItemsList.appendChild(listItem);
+
+            // Calculate and update the total price
+            totalPrice += count * price;
+        }
+
+        // Update the total price display
+        totalPriceSpan.textContent = totalPrice.toFixed(2);
+    }
+});
+
+
+
+
+
+
+
+10/04/23
+Print the grid values --> pending : only print the grid table
+
+document.addEventListener('DOMContentLoaded', function () {
+    const fruitDivs = document.querySelectorAll('.fruit');
+    const gridViewBody = document.getElementById('grid-view-body');
+    const totalPriceSpan = document.getElementById('total-price');
+    const cart = {}; // Object to store cart items and quantities
+
+    fruitDivs.forEach((fruitDiv) => {
+        const addButton = fruitDiv.querySelector('.add-to-cart');
+        const fruitName = fruitDiv.getAttribute('data-fruit');
+        const fruitPrice = parseFloat(fruitDiv.getAttribute('data-price'));
+
+        addButton.addEventListener('click', function () {
+            // Increase the fruit count or initialize to 1 if it doesn't exist
+            if (cart[fruitName]) {
+                cart[fruitName].count++;
+            } else {
+                cart[fruitName] = { count: 1, price: fruitPrice };
+            }
+
+            // Update the grid view
+            updateGridView();
+        });
+    });
+
+    function updateGridView() {
+        // Clear the current grid view
+        gridViewBody.innerHTML = '';
+
+        // Initialize total price to 0
+        let totalPrice = 0;
+
+        // Loop through the cart object and add items to the grid view
+        for (const fruitName in cart) {
+            const { count, price } = cart[fruitName];
+            const row = document.createElement('tr');
+
+            // Fruit Name
+            const fruitCell = document.createElement('td');
+            fruitCell.textContent = fruitName;
+            row.appendChild(fruitCell);
+
+            // Price
+            const priceCell = document.createElement('td');
+            priceCell.textContent = `$${price.toFixed(2)}`;
+            row.appendChild(priceCell);
+
+            // Quantity
+            const quantityCell = document.createElement('td');
+            quantityCell.textContent = count;
+            row.appendChild(quantityCell);
+
+            // Create a "Remove" button for each item in the grid view
+            const removeButton = document.createElement('button');
+            removeButton.classList.add('remove-from-cart');
+            removeButton.textContent = '-';
+
+            // Attach an event listener to the "Remove" button
+            removeButton.addEventListener('click', function () {
+                // Remove one quantity of the fruit
+                if (cart[fruitName].count > 1) {
+                    cart[fruitName].count--;
+                } else {
+                    delete cart[fruitName]; // Remove the fruit if quantity becomes zero
+                }
+
+                // Update the grid view
+                updateGridView();
+            });
+
+            // Add the "Remove" button to the Remove column
+            const removeCell = document.createElement('td');
+            removeCell.appendChild(removeButton);
+            row.appendChild(removeCell);
+
+            gridViewBody.appendChild(row);
+
+            // Calculate and update the total price
+            totalPrice += count * price;
+        }
+
+        // Update the total price display
+        totalPriceSpan.textContent = totalPrice.toFixed(2);
+    }
+    // -------------
+    // const printButton = document.getElementById('print-button');
+    // printButton.addEventListener('click', function () {
+    //     // Call the browser's print function
+    //     window.print();
+    // });
+
+    const printButton = document.getElementById('print-button');
+
+    printButton.addEventListener('click', function () {
+        printCart();
+    });
+
+    function printCart() {
+        const cartItemsList = document.getElementById('cart-items');
+        const gridItemsList = document.getElementById('grid-view');
+        const totalPriceSpan = document.getElementById('total-price');
+
+        // window.print();
+        // Create a new window for printing
+        const printWindow = window.open('', '', 'width=600,height=600');
+
+        // Prepare the content to be printed
+        const cartHTML = `
+        <h2>Cart</h2>
+        <ul>${cartItemsList.innerHTML}</ul>
+        <h2>Grid View</h2>
+        ${gridItemsList.outerHTML} <!-- Include the entire grid view -->
+        <p>Total Price: $${totalPriceSpan.textContent}</p>
+    `;
+
+        // Write the content to the new window
+        printWindow.document.open();
+        printWindow.document.write(`
+            <html>
+            <head>
+                <title>Print Cart</title>
+            </head>
+            <body>${cartHTML}</body>
+            </html>
+        `);
+        printWindow.document.close();
+
+        // Trigger the print dialog
+        printWindow.print();
+        printWindow.close();
+
+    }
+});

@@ -1,0 +1,63 @@
+Create webpage -- First project
+Design Fruit shop:
+Logo Name
+1.Home -- fruit details
+2.About -- shop details
+3.Contact -- contact details
+4.Fruites -- fruit images
+
+color:
+darkred,florwhite
+
+Online fruit shop::::
+https://www.youtube.com/watch?v=mkbFxgZuKtI
+https://www.youtube.com/watch?v=bCTd1eRX7Iw
+
+Verify Footer section ::::
+https://www.dezven.com/project/how-to-create-shopping-website-using-html-and-css
+
+Login page using HTML CSS and JavaScript source code use if else condition for redirect the page and show the username in the redirected page
+
+
+.heading {
+    background-color: blueviolet;
+    color: palegreen;
+    height: 40px;
+    width: 300px;
+    text-shadow: 3px 3px purple;
+}
+
+.paragraph {
+    font-size: xx-large;
+    background-color: white;
+    font-family: math;
+    margin: 100px 10px 0px 50px;
+    padding: 10px 20px;
+}
+
+nav {
+    background-color: blanchedalmond;
+    height: 10px;
+    width: 300px;
+    border: 5px solid rgb(31, 12, 138);
+    padding: 10px 30PX 50px 50px;
+    margin: 20px 20px 20px 900px;
+    font-size: x-large;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+}
+marquee{
+    color: cyan;
+    margin-top: 150px;
+    font-size: xxx-large;
+    font-style: italic;
+}
+
+#img{
+    display: flex;
+    justify-content: space-between;
+}
+img {
+    height: 200px;
+    width: 200px;
+}
